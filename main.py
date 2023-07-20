@@ -46,6 +46,11 @@ def camUpdate():
         # print (micsActive)
         cameraActive = "Active"
         cam1.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+        # cam2.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+        # cam3.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+        # cam4.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+        # cam5.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+        # cam6.moveToPreset(preset_index=int(micsActive[0]) + - 1)
 
     if not micsActive:
         cameraActive = "Inactive"
