@@ -38,7 +38,7 @@ root.title("Camera Configuration")
 
 # Initialize button
 initialize_btn = tk.Button(root, text="Initialize", command=start_initialize_thread)
-initialize_btn.grid(row=0, column=0, columnspan=2, pady=5)
+initialize_btn.grid(row=8, column=0, columnspan=4, pady=5)
 
 # Camera configurations
 cam1_var = tk.StringVar()
@@ -97,7 +97,7 @@ cam6_checkbox.grid(row=6, column=2)
 
 # Submit button
 submit_btn = tk.Button(root, text="Submit", command=submit)
-submit_btn.grid(row=7, column=0, columnspan=2, pady=10)
+submit_btn.grid(row=7, column=0, columnspan=4, pady=10)
 
 # Start the main loop
 root.mainloop()
