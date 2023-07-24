@@ -23,6 +23,7 @@ micStateOff = '"State":"Off"'
 seatNumber = "0"
 micsActive = []
 totalMics = 15
+programQuit = False
 
 # CAMERA VARIABLES
 cam1IP = "192.168.0.170"
@@ -88,6 +89,11 @@ def startProgram():
             cameraActive = "Inactive"
             camUpdate()
             continue
+
+        elif programQuit == True:
+            exit()
+            break
+
 
 
 
