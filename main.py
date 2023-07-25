@@ -18,6 +18,8 @@ cam5.enabled = "Disabled"
 cam6.enabled = "Disabled"
 
 # GLOBAL VARIABLES
+global televicIP
+televicIP = "192.168.0.150"
 cameraActive = "Active"
 micStateChange = 'MicrophoneState'
 micStateOn = '"State":"On"'
@@ -41,12 +43,12 @@ camera_home = "http://" + cameraIP + "/cgi-bin/aw_ptz?cmd=%23R00&res=1"
 # INITIALIZE THE SYSTEM AND CONNECT TO TELEVIC
 def initialize():
     global api_url
-    api_url = "http://192.168.0.150:8890/CoCon/Connect"
+    api_url = "http://"+televicIP+":8890/CoCon/Connect"
     response = requests.get(api_url)
     response.json()
     print(response.json())
     apiID = response.json()[22:58]
-    api_url = "http://192.168.0.150:8890/CoCon/Notification/id=" + apiID
+    api_url = "http://"+televicIP+":8890/CoCon/Notification/id=" + apiID
     print(api_url)
 
 
@@ -123,5 +125,5 @@ def startProgram():
 
 # MAIN PROGRAM LOOP:
 
-#initialize()
-#startProgram()
+initialize()
+startProgram()
