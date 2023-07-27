@@ -36,7 +36,7 @@ def submit():
     # Add your code to use the entered values here
     for cam, values in cam_values.items():
         print(f"{cam} - IP: {values['ip']} - Enabled: {values['enabled']}")
-         #   main. =
+
 
 # Create the main application window
 root = tk.Tk()
