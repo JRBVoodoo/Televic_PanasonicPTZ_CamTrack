@@ -21,12 +21,12 @@ def programQuit():
     exit()
 
 def programPause():
-    if main.programPaused:
-        main.programPaused = False
+    if main.programUnpaused:
+        main.programUnpaused = False
         print("Autotracking Paused")
         pause_btn.config(relief="sunken")
-    elif not main.programPaused:
-        main.programPaused = True
+    elif not main.programUnpaused:
+        main.programUnpaused = True
         print("Autotracking Enabled")
         pause_btn.config(relief="raised")
 
@@ -52,7 +52,7 @@ root = tk.Tk()
 root.title("Autotracking")
 
 # Initialize button
-initialize_btn = tk.Button(root, text="Initialize", command=start_initialize_thread)
+initialize_btn = tk.Button(root, text="Start Tracking", command=start_initialize_thread)
 initialize_btn.grid(row=8, column=0, columnspan=4, pady=5)
 
 # Camera configurations

@@ -29,7 +29,7 @@ micsActive = []
 totalMics = 15
 programQuit = False
 response_json = ""
-programPaused = True
+programUnpaused = True
 
 # CAMERA VARIABLES
 cam1IP = "192.168.0.170"
@@ -118,7 +118,7 @@ def startProgram():
         # print (response.json())
         # cam1.moveToPreset(preset_index=0)
 
-        if micStateChange in response.json() and programPaused:
+        if micStateChange in response.json() and programUnpaused:
             response_json = response.json()
             data = json.loads(response_json)
             speakers_array = data["MicrophoneState"]["Speakers"]
