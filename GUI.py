@@ -23,11 +23,11 @@ def programQuit():
 def programPause():
     if main.programUnpaused:
         main.programUnpaused = False
-        print("Autotracking Paused")
+        print("Auto-tracking Paused")
         pause_btn.config(relief="sunken")
     elif not main.programUnpaused:
         main.programUnpaused = True
-        print("Autotracking Enabled")
+        print("Auto-tracking Enabled")
         pause_btn.config(relief="raised")
 
 
@@ -49,7 +49,7 @@ def submit():
 
 # Create the main application window
 root = tk.Tk()
-root.title("Autotracking")
+root.title("Auto-tracking")
 
 # Initialize button
 initialize_btn = tk.Button(root, text="Start Tracking", command=start_initialize_thread)
