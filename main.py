@@ -110,7 +110,7 @@ def update_micsActive(current_state):
 def startProgram():
     global response_json
     global micsActive
-    while programPaused:
+    while True:
 
         # time.sleep(.1)
         response = requests.get(api_url)
@@ -118,7 +118,7 @@ def startProgram():
         # print (response.json())
         # cam1.moveToPreset(preset_index=0)
 
-        if micStateChange in response.json():
+        if micStateChange in response.json() and programPaused:
             response_json = response.json()
             data = json.loads(response_json)
             speakers_array = data["MicrophoneState"]["Speakers"]

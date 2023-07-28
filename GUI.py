@@ -24,9 +24,11 @@ def programPause():
     if main.programPaused:
         main.programPaused = False
         print("Autotracking Paused")
+        pause_btn.config(relief="sunken")
     elif not main.programPaused:
         main.programPaused = True
         print("Autotracking Enabled")
+        pause_btn.config(relief="raised")
 
 
 def submit():
