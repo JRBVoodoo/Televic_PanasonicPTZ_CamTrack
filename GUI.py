@@ -18,8 +18,17 @@ def start_initialize_thread():
 
 
 def programQuit():
-    main.programQuit = True
     exit()
+    main.programQuit = True
+
+
+def programPause():
+    if main.programPaused:
+        main.programPaused = False
+        print("Autotracking Paused")
+    elif not main.programPaused:
+        main.programPaused = True
+        print("Autotracking Enabled")
 
 
 def submit():
@@ -40,7 +49,7 @@ def submit():
 
 # Create the main application window
 root = tk.Tk()
-root.title("Camera Configuration")
+root.title("Autotracking")
 
 # Initialize button
 initialize_btn = tk.Button(root, text="Initialize", command=start_initialize_thread)
@@ -111,9 +120,13 @@ cam6_checkbox.grid(row=6, column=2, padx=10)
 submit_btn = tk.Button(root, text="Submit", command=submit)
 submit_btn.grid(row=7, column=0, columnspan=4, pady=10)
 
+# Pause button
+pause_btn = tk.Button(root, text="Pause", command=programPause)
+pause_btn.grid(row=9, column=0, columnspan=4, pady=10)
+
 # Exit button
-submit_btn = tk.Button(root, text="Quit", command=programQuit)
-submit_btn.grid(row=9, column=0, columnspan=4, pady=10)
+exit_btn = tk.Button(root, text="Quit", command=programQuit)
+exit_btn.grid(row=10, column=0, columnspan=4, pady=10)
 
 # Start the main loop
 root.mainloop()

@@ -10,12 +10,12 @@ cam3 = PTZCamera.PTZCamera(address='192.168.0.172')
 cam4 = PTZCamera.PTZCamera(address='192.168.0.173')
 cam5 = PTZCamera.PTZCamera(address='192.168.0.174')
 cam6 = PTZCamera.PTZCamera(address='192.168.0.175')
-cam1.enabled = "Enabled"
-cam2.enabled = "Enabled"
-cam3.enabled = "Enabled"
-cam4.enabled = "Disabled"
-cam5.enabled = "Disabled"
-cam6.enabled = "Disabled"
+cam1.enabled = "Disabled"
+cam2.enabled = "Disabled"
+cam3.enabled = "Disabled"
+cam4.enabled = "Enabled"
+cam5.enabled = "Enabled"
+cam6.enabled = "Enabled"
 
 # GLOBAL VARIABLES
 global televicIP
@@ -29,6 +29,7 @@ micsActive = []
 totalMics = 15
 programQuit = False
 response_json = ""
+programPaused = True
 
 # CAMERA VARIABLES
 cam1IP = "192.168.0.170"
@@ -60,12 +61,12 @@ def camUpdate():
 
         if len(micsActive) >= 1 and cam.enabled == "Enabled" and cameraActive == "Inactive":
             cameraActive = "Active"
-            cam.moveToPreset(preset_index=int(micsActive[0]) + - 1)
-            cam2.moveToPreset(preset_index=int(micsActive[0]) + - 1)
-            cam3.moveToPreset(preset_index=int(micsActive[0]) + - 1)
-            # cam4.moveToPreset(preset_index=int(micsActive[0]) + - 1)
-            # cam5.moveToPreset(preset_index=int(micsActive[0]) + - 1)
-            # cam6.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+            #cam.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+            #cam2.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+            #cam3.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+            cam4.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+            cam5.moveToPreset(preset_index=int(micsActive[0]) + - 1)
+            cam6.moveToPreset(preset_index=int(micsActive[0]) + - 1)
 
         # elif len(micsActive) >= 1 and cam.enabled == "Enabled" and cameraActive == "Active":
         #     print("Cameras currently active")
@@ -109,7 +110,7 @@ def update_micsActive(current_state):
 def startProgram():
     global response_json
     global micsActive
-    while True:
+    while programPaused == True:
 
         # time.sleep(.1)
         response = requests.get(api_url)
@@ -137,5 +138,5 @@ def startProgram():
 
 # MAIN PROGRAM LOOP:
 
-initialize()
-startProgram()
+# initialize()
+# startProgram()
