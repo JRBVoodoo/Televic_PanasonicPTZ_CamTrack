@@ -19,8 +19,6 @@ def start_initialize_thread():
 
 def programQuit():
     exit()
-    main.programQuit = True
-
 
 def programPause():
     if main.programPaused:

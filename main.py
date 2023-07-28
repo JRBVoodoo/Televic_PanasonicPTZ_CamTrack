@@ -110,7 +110,7 @@ def update_micsActive(current_state):
 def startProgram():
     global response_json
     global micsActive
-    while programPaused == True:
+    while programPaused:
 
         # time.sleep(.1)
         response = requests.get(api_url)
@@ -130,7 +130,7 @@ def startProgram():
 
         elif programQuit:
             exit()
-            break
+
 
 
 
