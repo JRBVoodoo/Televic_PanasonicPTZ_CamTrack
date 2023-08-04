@@ -1,1 +1,0 @@
-https://github.com/Chrisrdouglas/pynasonic_ptz/tarball/master
